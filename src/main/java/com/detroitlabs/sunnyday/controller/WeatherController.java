@@ -1,5 +1,6 @@
 package com.detroitlabs.sunnyday.controller;
 
+import com.detroitlabs.sunnyday.model.Coordinates;
 import com.detroitlabs.sunnyday.model.Forecast;
 import com.detroitlabs.sunnyday.model.Temperature;
 import com.detroitlabs.sunnyday.model.WeatherDescription;
@@ -18,10 +19,12 @@ public class WeatherController {
         Forecast forecast = weatherService.fetchWeatherData();
         Temperature temperature = forecast.getTemperature();
         WeatherDescription weather = forecast.getWeather().get(0);
+
         return "The current temperature in " + forecast.getName() + " " + temperature.toFahrenheit() +  "" +
-                " degrees fahrenheit. The current humidity is " + temperature.getHumidity() + '\n' +
+                " degrees fahrenheit. The current humidity is " + temperature.getHumidity() + "<br>" +
                 "The wind speed is currently " + forecast.getWind().getSpeed() + " mph." + weather.getDescription()
-                + " " + weather.getIcon() + " " + weather.getMain() + " " + weather.getId();
+                + " " + weather.getIcon() + " " + weather.getMain() + " " + weather.getId() + "<br>" +
+                "Longitude: " + forecast.getCoord().getLon() + "<br>" + "Latitude: " + forecast.getCoord().getLat();
 //        return "home"; default
 
     }

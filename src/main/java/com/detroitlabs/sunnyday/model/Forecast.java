@@ -15,6 +15,8 @@ public class Forecast {
 
     Temperature temperature;
 
+    Coordinates coord;
+
 
     public String getName() {
         return name;
@@ -49,5 +51,13 @@ public class Forecast {
 
     public void setWeather(List<WeatherDescription> weather) {
         this.weather = weather;
+    }
+
+    public Coordinates getCoord() {
+        return coord;
+    }
+
+    public void setCoord(Coordinates coord) {
+        this.coord = coord;
     }
 }
